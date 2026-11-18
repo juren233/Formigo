@@ -23,7 +23,7 @@ var (
 func mustDecodeBitmap(data []byte) *ui.Bitmap {
 	bmp, err := ui.DecodeBitmap(data)
 	if err != nil {
-		panic("fomigo: failed to decode embedded brand bitmap: " + err.Error())
+		panic("formigo: failed to decode embedded brand bitmap: " + err.Error())
 	}
 	return bmp
 }

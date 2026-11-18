@@ -11,7 +11,7 @@ import (
 
 func TestCLIConvertAndJSONRedaction(t *testing.T) {
 	dir := t.TempDir()
-	t.Setenv("FOMIGO_CONFIG_PATH", filepath.Join(dir, "prefs.json"))
+	t.Setenv("FORMIGO_CONFIG_PATH", filepath.Join(dir, "prefs.json"))
 
 	// 1. capabilities --json
 	var out, errBuf bytes.Buffer
@@ -26,7 +26,7 @@ func TestCLIConvertAndJSONRedaction(t *testing.T) {
 
 	// 2. convert JSON -> YAML
 	jsonFile := filepath.Join(dir, "config.json")
-	_ = os.WriteFile(jsonFile, []byte(`{"app":"fomigo","offline":true}`), 0o644)
+	_ = os.WriteFile(jsonFile, []byte(`{"app":"formigo","offline":true}`), 0o644)
 
 	out.Reset()
 	errBuf.Reset()
@@ -36,7 +36,7 @@ func TestCLIConvertAndJSONRedaction(t *testing.T) {
 	}
 	yamlPath := filepath.Join(dir, "config.yaml")
 	data, err := os.ReadFile(yamlPath)
-	if err != nil || !strings.Contains(string(data), "fomigo") {
+	if err != nil || !strings.Contains(string(data), "formigo") {
 		t.Fatalf("expected converted YAML at %s, err=%v", yamlPath, err)
 	}
 

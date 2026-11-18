@@ -1,7 +1,7 @@
 package appui
 
 import (
-	"fomigo/internal/converter"
+	"formigo/internal/converter"
 
 	"github.com/egoist/mygo/ui"
 )
@@ -89,9 +89,9 @@ func PaletteFor(t *ui.Theme) SurfacePalette {
 	}
 }
 
-// applyAppearance configures Fomigo's Gopher Sky-Blue & Deep-Navy brand theme.
+// applyAppearance configures Formigo's Gopher Sky-Blue & Deep-Navy brand theme.
 // Importantly, WithPreferences is applied BEFORE setting brand colors so OS wallpaper
-// dynamic colors never overwrite Fomigo's brand palette.
+// dynamic colors never overwrite Formigo's brand palette.
 func (s *AppState) applyAppearance(c *ui.Context) {
 	prefs := c.Preferences()
 	dark := false

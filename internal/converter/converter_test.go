@@ -94,7 +94,7 @@ func TestPDFWorkflowsAndChineseTextRoundTrip(t *testing.T) {
 
 	// 1. Markdown with Chinese + English -> Vector PDF -> Extract back to Markdown
 	mdPath := filepath.Join(dir, "notes.md")
-	mdContent := "# 项目架构说明\n\nFomigo 支持纯 Go 离线格式互转与跨平台 GPU 界面。\n\n- 零 CGO 依赖\n- 原子文件写入校验\n"
+	mdContent := "# 项目架构说明\n\nFormigo 支持纯 Go 离线格式互转与跨平台 GPU 界面。\n\n- 零 CGO 依赖\n- 原子文件写入校验\n"
 	if err := os.WriteFile(mdPath, []byte(mdContent), 0o644); err != nil {
 		t.Fatal(err)
 	}
@@ -120,7 +120,7 @@ func TestPDFWorkflowsAndChineseTextRoundTrip(t *testing.T) {
 	}
 	extractedBytes, _ := os.ReadFile(resExtracted.OutputPath)
 	extractedText := string(extractedBytes)
-	if !strings.Contains(extractedText, "项目架构说明") || !strings.Contains(extractedText, "Fomigo") {
+	if !strings.Contains(extractedText, "项目架构说明") || !strings.Contains(extractedText, "Formigo") {
 		t.Fatalf("expected Chinese & English text in extracted PDF output, got: %q", extractedText)
 	}
 
@@ -325,7 +325,7 @@ func TestSubtitlesArchivesAndZipSlipDefense(t *testing.T) {
 
 	// Subtitle chain: SRT -> VTT -> ASS -> TXT
 	srtPath := filepath.Join(dir, "sub.srt")
-	srt := "1\n00:00:01,250 --> 00:00:04,500\n你好，欢迎使用 Fomigo！\n\n2\n00:00:05,000 --> 00:00:08,100\n<i>第二行双语字幕</i>\n"
+	srt := "1\n00:00:01,250 --> 00:00:04,500\n你好，欢迎使用 Formigo！\n\n2\n00:00:05,000 --> 00:00:08,100\n<i>第二行双语字幕</i>\n"
 	_ = os.WriteFile(srtPath, []byte(srt), 0o644)
 
 	resVTT, err := p.Convert(context.Background(), Request{
@@ -347,7 +347,7 @@ func TestSubtitlesArchivesAndZipSlipDefense(t *testing.T) {
 		t.Fatalf("ASS -> TXT failed: %v", err)
 	}
 	txtData, _ := os.ReadFile(resTXT.OutputPath)
-	if !strings.Contains(string(txtData), "欢迎使用 Fomigo") {
+	if !strings.Contains(string(txtData), "欢迎使用 Formigo") {
 		t.Fatalf("subtitle text mismatch: %s", string(txtData))
 	}
 

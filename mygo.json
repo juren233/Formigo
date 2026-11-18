@@ -1,7 +1,7 @@
 {
-  "name": "Fomigo",
-  "slug": "fomigo",
-  "identifier": "com.fomigo.converter",
+  "name": "Formigo",
+  "slug": "formigo",
+  "identifier": "com.formigo.converter",
   "version": "0.1.0",
   "icon": "resources/icon.png",
   "linux": {

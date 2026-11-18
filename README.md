@@ -1,4 +1,4 @@
-# Fomigo
+# Formigo
 
 全平台本地离线文件格式转换工具，采用 **Go** 语言与 **[MyGo](https://github.com/egoist/mygo)** 原生 GPU UI 框架构建（纯 Go、零 CGO、无 WebView，单二进制跨平台运行）。
 
@@ -40,33 +40,33 @@
 ```bash
 go run .
 # 或编译可执行文件后运行
-go build -o fomigo .
-./fomigo
+go build -o formigo .
+./formigo
 ```
 
 ### 命令行 (CLI) 模式
 
 ```bash
 # 查看当前机器就绪的内置与外部引擎
-./fomigo engines
+./formigo engines
 
 # 查看当前激活的完整格式转换矩阵（支持 --json）
-./fomigo capabilities
-./fomigo capabilities --json
+./formigo capabilities
+./formigo capabilities --json
 
 # 查询特定文件或扩展名可转换的目标格式
-./fomigo targets example.pdf
+./formigo targets example.pdf
 
 # 单个或批量转换
-./fomigo convert logo.svg --to ico -o app.ico
-./fomigo convert a.png b.png --to webp --quality 88 --output-dir ./out
-./fomigo convert video.mov --to mp4 --video-codec h265 --audio-bitrate 192k
+./formigo convert logo.svg --to ico -o app.ico
+./formigo convert a.png b.png --to webp --quality 88 --output-dir ./out
+./formigo convert video.mov --to mp4 --video-codec h265 --audio-bitrate 192k
 
 # PDF 拆分 / AES-256 加密 / 解密 / 合并 / 多图合成 PDF
-./fomigo convert doc.pdf --pdf-op split --split-span 2 -d ./out
-./fomigo convert doc.pdf --pdf-op encrypt --password "your-secret" -o encrypted.pdf
-./fomigo images-to-pdf page1.png page2.jpg -o album.pdf
-./fomigo merge-pdfs part1.pdf part2.pdf -o full.pdf
+./formigo convert doc.pdf --pdf-op split --split-span 2 -d ./out
+./formigo convert doc.pdf --pdf-op encrypt --password "your-secret" -o encrypted.pdf
+./formigo images-to-pdf page1.png page2.jpg -o album.pdf
+./formigo merge-pdfs part1.pdf part2.pdf -o full.pdf
 ```
 
 ### 全平台零 CGO 交叉编译
@@ -75,17 +75,17 @@ go build -o fomigo .
 
 ```bash
 # macOS (Apple Silicon & Intel)
-CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o dist/fomigo-darwin-arm64 .
-CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o dist/fomigo-darwin-amd64 .
+CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o dist/formigo-darwin-arm64 .
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o dist/formigo-darwin-amd64 .
 
 # Windows x64 (隐藏控制台窗口标志 -H=windowsgui 可选用于纯桌面发布)
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o dist/fomigo-windows-amd64.exe .
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o dist/formigo-windows-amd64.exe .
 
 # Linux x64 / arm64
-CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o dist/fomigo-linux-amd64 .
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o dist/formigo-linux-amd64 .
 ```
 
 ### 便携引擎目录（可选）
 
-可将外部工具放置在可执行文件同级的 `bin/` 目录（如 `bin/ffmpeg`、`bin/pandoc`、`bin/pdftoppm`、`bin/tesseract`），或在应用「偏好设置」页面指定自定义路径，Fomigo 会自动探测并激活对应高阶转换通道。
+可将外部工具放置在可执行文件同级的 `bin/` 目录（如 `bin/ffmpeg`、`bin/pandoc`、`bin/pdftoppm`、`bin/tesseract`），或在应用「偏好设置」页面指定自定义路径，Formigo 会自动探测并激活对应高阶转换通道。
 # Formigo

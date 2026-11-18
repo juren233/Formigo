@@ -783,7 +783,7 @@ func writeMarkdownToDOCX(title, md, outPath string) error {
 	if err := addEntry("docProps/core.xml", fmt.Sprintf(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <dc:title>%s</dc:title>
-  <dc:creator>Fomigo</dc:creator>
+  <dc:creator>Formigo</dc:creator>
   <dcterms:created xsi:type="dcterms:W3CDTF">%s</dcterms:created>
 </cp:coreProperties>`, escapeXML(title), time.Now().UTC().Format(time.RFC3339))); err != nil {
 		return err
@@ -1246,7 +1246,7 @@ th, td { border: 1px solid #ccc; padding: 6px 10px; }`); err != nil {
 		return err
 	}
 
-	uid := fmt.Sprintf("urn:fomigo:book:%d", time.Now().UnixNano())
+	uid := fmt.Sprintf("urn:formigo:book:%d", time.Now().UnixNano())
 	modified := time.Now().UTC().Format("2006-01-02T15:04:05Z")
 	opf := fmt.Sprintf(`<?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid">

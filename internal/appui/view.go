@@ -6,9 +6,9 @@ import (
 	"runtime"
 	"strings"
 
-	"fomigo/internal/config"
-	"fomigo/internal/converter"
-	"fomigo/internal/i18n"
+	"formigo/internal/config"
+	"formigo/internal/converter"
+	"formigo/internal/i18n"
 
 	"github.com/egoist/mygo/plugins/loading"
 	"github.com/egoist/mygo/transfer"
@@ -18,7 +18,7 @@ import (
 
 type navPillMatch struct{}
 
-// View renders the Fomigo native GPU interface, adapting responsively between desktop and mobile viewports.
+// View renders the Formigo native GPU interface, adapting responsively between desktop and mobile viewports.
 func (s *AppState) View(c *ui.Context) {
 	s.applyAppearance(c)
 	t := c.Theme()
@@ -124,8 +124,8 @@ func (s *AppState) handleDesktopShortcuts(c *ui.Context) {
 
 func renderBrandWordmark(c *ui.Context, t *ui.Theme, size float32) {
 	ui.RichText(c,
-		ui.Span{Text: "Fom", Size: size, Weight: 800, Color: t.Text},
-		ui.Span{Text: "igo", Size: size, Weight: 800, Color: t.Accent},
+		ui.Span{Text: "For", Size: size, Weight: 800, Color: t.Text},
+		ui.Span{Text: "migo", Size: size, Weight: 800, Color: t.Accent},
 	).SingleLine()
 }
 

@@ -179,7 +179,7 @@ type Catalog struct {
 }
 
 var zhCatalog = Catalog{
-	AppName:        "Fomigo",
+	AppName:        "Formigo",
 	AppSubtitle:    "全平台本地离线格式转换引擎",
 	NavGroupWork:   "工作台",
 	NavGroupSystem: "引擎与系统",
@@ -275,9 +275,9 @@ var zhCatalog = Catalog{
 	BatchDoneToast: "批量转换已完成",
 
 	EnginesTitle:       "转换引擎状态与能力矩阵",
-	EnginesSubtitle:    "Fomigo 采用「纯 Go 内置引擎 + 可选外部专业工具」双层架构，开箱即用且支持按需增强",
+	EnginesSubtitle:    "Formigo 采用「纯 Go 内置引擎 + 可选外部专业工具」双层架构，开箱即用且支持按需增强",
 	RescanEngines:      "重新检测引擎",
-	EngineBuiltinTitle: "Fomigo Native Core (纯 Go 内置引擎)",
+	EngineBuiltinTitle: "Formigo Native Core (纯 Go 内置引擎)",
 	EngineBuiltinDesc:  "零外部依赖：图片/ICO/SVG/WebP、PDF 合并拆分加解密与文本提取、XLSX/CSV/JSON/YAML/XML/TOML、DOCX/EPUB/Markdown/HTML、字幕与归档",
 	EngineAvailable:    "已就绪",
 	EngineMissing:      "未检测到",
@@ -311,7 +311,7 @@ var zhCatalog = Catalog{
 }
 
 var enCatalog = Catalog{
-	AppName:        "Fomigo",
+	AppName:        "Formigo",
 	AppSubtitle:    "Cross-Platform Offline File Format Converter",
 	NavGroupWork:   "Workspace",
 	NavGroupSystem: "System",
@@ -409,7 +409,7 @@ var enCatalog = Catalog{
 	EnginesTitle:       "Conversion Engines & Capability Matrix",
 	EnginesSubtitle:    "Dual-layer architecture: Pure-Go Native Core out of the box + auto-detected external engines",
 	RescanEngines:      "Rescan Engines",
-	EngineBuiltinTitle: "Fomigo Native Core (Pure Go)",
+	EngineBuiltinTitle: "Formigo Native Core (Pure Go)",
 	EngineBuiltinDesc:  "Zero external dependencies: Image/ICO/SVG/WebP, PDF merge/split/AES/text, XLSX/CSV/JSON/YAML/XML/TOML, DOCX/EPUB/MD/HTML, Subtitles & Archives",
 	EngineAvailable:    "Ready",
 	EngineMissing:      "Not Found",

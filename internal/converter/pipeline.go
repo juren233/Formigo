@@ -26,7 +26,7 @@ func NewPipeline(rt *Runtime) (*Pipeline, error) {
 	if rt == nil {
 		rt = NewRuntime(nil)
 	}
-	dir, err := os.MkdirTemp("", "fomigo-runtime-*")
+	dir, err := os.MkdirTemp("", "formigo-runtime-*")
 	if err != nil {
 		return nil, err
 	}
@@ -465,7 +465,7 @@ func deliverAtomically(stagedPath, finalPath string) error {
 		return nil
 	}
 	// Cross-device fallback: write to sibling temp file then rename into finalPath.
-	tmpDest := finalPath + fmt.Sprintf(".fomigo-%d.part", time.Now().UnixNano())
+	tmpDest := finalPath + fmt.Sprintf(".formigo-%d.part", time.Now().UnixNano())
 	in, err := os.Open(stagedPath)
 	if err != nil {
 		return err
