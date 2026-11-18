@@ -6,9 +6,9 @@ import (
 	"runtime"
 	"strings"
 
-	"fomigo/internal/config"
-	"fomigo/internal/converter"
-	"fomigo/internal/i18n"
+	"formigo/internal/config"
+	"formigo/internal/converter"
+	"formigo/internal/i18n"
 
 	"github.com/egoist/mygo/plugins/loading"
 	"github.com/egoist/mygo/transfer"

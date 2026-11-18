@@ -10,9 +10,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"fomigo/internal/config"
-	"fomigo/internal/converter"
-	"fomigo/internal/i18n"
+	"formigo/internal/config"
+	"formigo/internal/converter"
+	"formigo/internal/i18n"
 )
 
 var uiItemSeq atomic.Uint64
@@ -126,7 +126,7 @@ type AppState struct {
 // NewAppState initializes application state from Store and Pipeline.
 func NewAppState(store *config.Store, pipe *converter.Pipeline, bridge PlatformBridge) *AppState {
 	if store == nil {
-		store = config.LoadStore(filepath.Join(os.TempDir(), "fomigo-fallback-prefs.json"))
+		store = config.LoadStore(filepath.Join(os.TempDir(), "formigo-fallback-prefs.json"))
 	}
 	prefs := store.Get()
 	if pipe == nil {

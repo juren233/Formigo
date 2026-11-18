@@ -1,4 +1,4 @@
-module fomigo
+module formigo
 
 go 1.27.3
 

@@ -7,10 +7,10 @@ import (
 	"runtime"
 	"strings"
 
-	"fomigo/internal/appui"
-	"fomigo/internal/cli"
-	"fomigo/internal/config"
-	"fomigo/internal/converter"
+	"formigo/internal/appui"
+	"formigo/internal/cli"
+	"formigo/internal/config"
+	"formigo/internal/converter"
 
 	"github.com/egoist/mygo"
 	"github.com/egoist/mygo/ui"
@@ -84,7 +84,7 @@ func main() {
 		var err error
 		pipe, err = converter.NewPipeline(rt)
 		if err != nil {
-			log.Printf("fomigo: failed to initialize runtime workspace: %v", err)
+			log.Printf("formigo: failed to initialize runtime workspace: %v", err)
 			return
 		}
 

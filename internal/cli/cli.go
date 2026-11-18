@@ -13,21 +13,21 @@ import (
 	"strings"
 	"syscall"
 
-	"fomigo/internal/config"
-	"fomigo/internal/converter"
+	"formigo/internal/config"
+	"formigo/internal/converter"
 )
 
 const usageText = `Fomigo — Cross-Platform Offline File Format Converter (Go + MyGo)
 
 Usage:
-  fomigo                                      Launch native GPU desktop UI
-  fomigo engines [--json]                     Inspect built-in & external conversion engines
-  fomigo capabilities [--json]                List active format capability matrix
-  fomigo targets <file-or-ext> [--json]       List available output formats for a source file/ext
-  fomigo convert <files...> --to <ext> [opts] Convert one or more files
-  fomigo images-to-pdf <imgs...> [opts]       Merge ordered images into a single PDF
-  fomigo merge-pdfs <pdfs...> [opts]          Merge multiple PDFs into a single PDF
-  fomigo pack-zip <files...> [opts]           Pack multiple files into a ZIP archive
+  formigo                                      Launch native GPU desktop UI
+  formigo engines [--json]                     Inspect built-in & external conversion engines
+  formigo capabilities [--json]                List active format capability matrix
+  formigo targets <file-or-ext> [--json]       List available output formats for a source file/ext
+  formigo convert <files...> --to <ext> [opts] Convert one or more files
+  formigo images-to-pdf <imgs...> [opts]       Merge ordered images into a single PDF
+  formigo merge-pdfs <pdfs...> [opts]          Merge multiple PDFs into a single PDF
+  formigo pack-zip <files...> [opts]           Pack multiple files into a ZIP archive
 
 Options:
   -t, --to <format>            Target format extension (e.g. webp, pdf, mp4, xlsx, docx, md)
@@ -83,7 +83,7 @@ func Run(args []string, stdout, stderr io.Writer) int {
 		return 0
 	}
 	if args[0] == "version" || args[0] == "--version" || args[0] == "-v" {
-		_, _ = io.WriteString(stdout, "fomigo 0.1.0\n")
+		_, _ = io.WriteString(stdout, "formigo 0.1.0\n")
 		return 0
 	}
 
@@ -148,7 +148,7 @@ func Run(args []string, stdout, stderr io.Writer) int {
 
 	case "targets":
 		if len(parsed.files) == 0 {
-			writeCLIError(stdout, stderr, parsed.jsonOutput, errors.New("usage: fomigo targets <file-or-ext>"), "")
+			writeCLIError(stdout, stderr, parsed.jsonOutput, errors.New("usage: formigo targets <file-or-ext>"), "")
 			return 2
 		}
 		srcExt := converter.NormalizeExt(parsed.files[0])

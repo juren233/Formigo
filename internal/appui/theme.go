@@ -1,7 +1,7 @@
 package appui
 
 import (
-	"fomigo/internal/converter"
+	"formigo/internal/converter"
 
 	"github.com/egoist/mygo/ui"
 )

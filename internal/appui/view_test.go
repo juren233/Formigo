@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"fomigo/internal/config"
-	"fomigo/internal/converter"
+	"formigo/internal/config"
+	"formigo/internal/converter"
 
 	"github.com/egoist/mygo/ui"
 )

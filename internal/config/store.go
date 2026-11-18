@@ -8,7 +8,7 @@ import (
 	"strings"
 	"sync"
 
-	"fomigo/internal/i18n"
+	"formigo/internal/i18n"
 )
 
 // OutputMode controls where converted files are written by default.
@@ -103,7 +103,7 @@ func DefaultConfigPath() string {
 	if err != nil || base == "" {
 		base = os.TempDir()
 	}
-	return filepath.Join(base, "fomigo", "preferences.json")
+	return filepath.Join(base, "formigo", "preferences.json")
 }
 
 // LoadStore loads preferences from path (or DefaultConfigPath if empty), falling back to defaults.
