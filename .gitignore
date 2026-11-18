@@ -1,0 +1,21 @@
+# Binaries & build artifacts
+/fomigo
+/fomigo.exe
+/.mygo/
+/dist/
+/build/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Portable external engines (optional local drop-in)
+/bin/
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
