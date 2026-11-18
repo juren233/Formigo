@@ -11,7 +11,7 @@ import (
 
 func TestCLIConvertAndJSONRedaction(t *testing.T) {
 	dir := t.TempDir()
-	t.Setenv("FOMIGO_CONFIG_PATH", filepath.Join(dir, "prefs.json"))
+	t.Setenv("FORMIGO_CONFIG_PATH", filepath.Join(dir, "prefs.json"))
 
 	// 1. capabilities --json
 	var out, errBuf bytes.Buffer

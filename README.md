@@ -1,4 +1,4 @@
-# Fomigo
+# Formigo
 
 全平台本地离线文件格式转换工具，采用 **Go** 语言与 **[MyGo](https://github.com/egoist/mygo)** 原生 GPU UI 框架构建（纯 Go、零 CGO、无 WebView，单二进制跨平台运行）。
 
@@ -87,5 +87,5 @@ CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o dist/formigo-linux-amd64 .
 
 ### 便携引擎目录（可选）
 
-可将外部工具放置在可执行文件同级的 `bin/` 目录（如 `bin/ffmpeg`、`bin/pandoc`、`bin/pdftoppm`、`bin/tesseract`），或在应用「偏好设置」页面指定自定义路径，Fomigo 会自动探测并激活对应高阶转换通道。
+可将外部工具放置在可执行文件同级的 `bin/` 目录（如 `bin/ffmpeg`、`bin/pandoc`、`bin/pdftoppm`、`bin/tesseract`），或在应用「偏好设置」页面指定自定义路径，Formigo 会自动探测并激活对应高阶转换通道。
 # Formigo

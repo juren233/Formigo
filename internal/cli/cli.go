@@ -17,7 +17,7 @@ import (
 	"formigo/internal/converter"
 )
 
-const usageText = `Fomigo — Cross-Platform Offline File Format Converter (Go + MyGo)
+const usageText = `Formigo — Cross-Platform Offline File Format Converter (Go + MyGo)
 
 Usage:
   formigo                                      Launch native GPU desktop UI

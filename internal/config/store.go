@@ -96,7 +96,7 @@ type Store struct {
 
 // DefaultConfigPath resolves the OS-appropriate config file location.
 func DefaultConfigPath() string {
-	if env := strings.TrimSpace(os.Getenv("FOMIGO_CONFIG_PATH")); env != "" {
+	if env := formigoEnv("FORMIGO_CONFIG_PATH", "FOMIGO_CONFIG_PATH"); env != "" {
 		return env
 	}
 	base, err := os.UserConfigDir()
@@ -104,6 +104,13 @@ func DefaultConfigPath() string {
 		base = os.TempDir()
 	}
 	return filepath.Join(base, "formigo", "preferences.json")
+}
+
+func formigoEnv(name, legacyName string) string {
+	if value := strings.TrimSpace(os.Getenv(name)); value != "" {
+		return value
+	}
+	return strings.TrimSpace(os.Getenv(legacyName))
 }
 
 // LoadStore loads preferences from path (or DefaultConfigPath if empty), falling back to defaults.

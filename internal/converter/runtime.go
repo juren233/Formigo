@@ -57,7 +57,7 @@ func (rt *Runtime) Refresh() {
 	statuses := make(map[EngineID]EngineStatus)
 	statuses[EngineBuiltin] = EngineStatus{
 		ID:          EngineBuiltin,
-		Name:        "Fomigo Native Core",
+		Name:        "Formigo Native Core",
 		Available:   true,
 		Builtin:     true,
 		Version:     "Pure Go",
@@ -71,7 +71,7 @@ func (rt *Runtime) Refresh() {
 	}
 	rt.mu.RUnlock()
 
-	ffmpeg := discoverBinary("ffmpeg", custom["ffmpeg"], os.Getenv("FOMIGO_FFMPEG_PATH"), extraFFmpegCandidates())
+	ffmpeg := discoverBinary("ffmpeg", custom["ffmpeg"], formigoEnv("FORMIGO_FFMPEG_PATH", "FOMIGO_FFMPEG_PATH"), extraFFmpegCandidates())
 	statuses[EngineFFmpeg] = probeTool(EngineFFmpeg, "FFmpeg", ffmpeg, []string{"-version"},
 		"Audio/Video transcoding (MP3/FLAC/WAV/AAC/OPUS/MP4/MKV/MOV/WEBM/GIF) & HEIC/AVIF/TGA decoding")
 
@@ -83,22 +83,22 @@ func (rt *Runtime) Refresh() {
 		}
 	}
 	if ffprobe == "" {
-		ffprobe = discoverBinary("ffprobe", custom["ffprobe"], os.Getenv("FOMIGO_FFPROBE_PATH"), extraFFprobeCandidates())
+		ffprobe = discoverBinary("ffprobe", custom["ffprobe"], formigoEnv("FORMIGO_FFPROBE_PATH", "FOMIGO_FFPROBE_PATH"), extraFFprobeCandidates())
 	}
 
-	soffice := discoverBinary("soffice", custom["libreoffice"], os.Getenv("FOMIGO_LIBREOFFICE_PATH"), extraLibreOfficeCandidates())
+	soffice := discoverBinary("soffice", custom["libreoffice"], formigoEnv("FORMIGO_LIBREOFFICE_PATH", "FOMIGO_LIBREOFFICE_PATH"), extraLibreOfficeCandidates())
 	statuses[EngineLibreOffice] = probeTool(EngineLibreOffice, "LibreOffice", soffice, []string{"--version"},
 		"High-fidelity Office/WPS (DOC/DOCX/XLS/XLSX/PPT/PPTX/ODT/RTF) <-> PDF & Office formats")
 
-	pandoc := discoverBinary("pandoc", custom["pandoc"], os.Getenv("FOMIGO_PANDOC_PATH"), extraPandocCandidates())
+	pandoc := discoverBinary("pandoc", custom["pandoc"], formigoEnv("FORMIGO_PANDOC_PATH", "FOMIGO_PANDOC_PATH"), extraPandocCandidates())
 	statuses[EnginePandoc] = probeTool(EnginePandoc, "Pandoc", pandoc, []string{"--version"},
 		"Rich document conversion (Markdown/DOCX/EPUB/RST/LaTeX/HTML)")
 
-	pdftoppm := discoverBinary("pdftoppm", custom["poppler"], os.Getenv("FOMIGO_PDFTOPPM_PATH"), extraPopplerCandidates())
+	pdftoppm := discoverBinary("pdftoppm", custom["poppler"], formigoEnv("FORMIGO_PDFTOPPM_PATH", "FOMIGO_PDFTOPPM_PATH"), extraPopplerCandidates())
 	statuses[EnginePoppler] = probeTool(EnginePoppler, "Poppler (pdftoppm)", pdftoppm, []string{"-v"},
 		"Multi-page PDF rasterization to high-DPI PNG/JPG images")
 
-	tesseract := discoverBinary("tesseract", custom["tesseract"], os.Getenv("FOMIGO_TESSERACT_PATH"), extraTesseractCandidates())
+	tesseract := discoverBinary("tesseract", custom["tesseract"], formigoEnv("FORMIGO_TESSERACT_PATH", "FOMIGO_TESSERACT_PATH"), extraTesseractCandidates())
 	tessStatus := probeTool(EngineTesseract, "Tesseract OCR", tesseract, []string{"--version"},
 		"Offline optical character recognition (Image / Scanned PDF -> TXT/MD)")
 	statuses[EngineTesseract] = tessStatus
@@ -532,4 +532,11 @@ func streamReader(r io.Reader, dst *bytes.Buffer, limit int, onLine func(string)
 	if onLine != nil && strings.TrimSpace(pending) != "" {
 		onLine(pending)
 	}
+}
+
+func formigoEnv(name, legacyName string) string {
+	if value := strings.TrimSpace(os.Getenv(name)); value != "" {
+		return value
+	}
+	return strings.TrimSpace(os.Getenv(legacyName))
 }

@@ -30,8 +30,8 @@ func TestAppViewNavigationAndConversionFlow(t *testing.T) {
 	tt := ui.NewTester(state.View, 1120, 740)
 
 	// 1. Verify initial Chinese UI renders cleanly without duplicate key panics
-	if !tt.HasText("Fomigo") || !tt.HasText("批量转换") {
-		t.Fatalf("expected Fomigo brand and Chinese sidebar, texts: %v", tt.Texts())
+	if !tt.HasText("Formigo") || !tt.HasText("批量转换") {
+		t.Fatalf("expected Formigo brand and Chinese sidebar, texts: %v", tt.Texts())
 	}
 
 	// 2. Add two real files to queue and verify queue cards appear
@@ -82,7 +82,7 @@ func TestAppViewNavigationAndConversionFlow(t *testing.T) {
 	if err := tt.Click("引擎与格式"); err != nil {
 		t.Fatalf("clicking 引擎与格式 failed: %v", err)
 	}
-	if !tt.HasText("Fomigo Native Core (纯 Go 内置引擎)") {
+	if !tt.HasText("Formigo Native Core (纯 Go 内置引擎)") {
 		t.Fatalf("expected built-in engine card on Engines page")
 	}
 
@@ -180,9 +180,9 @@ func TestMobileCompactViewAndTouchFlow(t *testing.T) {
 }
 
 func TestRenderSnapshots(t *testing.T) {
-	outDir := os.Getenv("FOMIGO_SNAP_DIR")
+	outDir := os.Getenv("FORMIGO_SNAP_DIR")
 	if outDir == "" {
-		t.Skip("set FOMIGO_SNAP_DIR to export UI snapshots")
+		t.Skip("set FORMIGO_SNAP_DIR to export UI snapshots")
 	}
 	if err := os.MkdirAll(outDir, 0o755); err != nil {
 		t.Fatal(err)
@@ -266,4 +266,3 @@ func TestRenderSnapshots(t *testing.T) {
 	state.ActivePage = PageConvert
 	save("08_mobile_light", 393, 852)
 }
-

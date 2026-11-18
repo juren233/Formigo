@@ -24,7 +24,7 @@ func main() {
 		os.Exit(cli.Run(os.Args[1:], os.Stdout, os.Stderr))
 	}
 
-	mygo.App.SetName("Fomigo")
+	mygo.App.SetName("Formigo")
 
 	var (
 		mainWin *mygo.Window
@@ -37,7 +37,7 @@ func main() {
 			return
 		}
 		opts := mygo.WindowOptions{
-			Title:           "Fomigo",
+			Title:           "Formigo",
 			Width:           1180,
 			Height:          760,
 			MinWidth:        860,
@@ -53,7 +53,7 @@ func main() {
 			opts.Vibrancy = mygo.VibrancySidebar
 		}
 		mainWin = mygo.NewWindow(opts)
-		// Accept files passed on the command line on desktop (e.g. "Open With Fomigo")
+		// Accept files passed on the command line on desktop (e.g. "Open With Formigo")
 		if !isMobile && len(os.Args) > 1 {
 			state.AddPaths(os.Args[1:])
 		}
@@ -71,7 +71,7 @@ func main() {
 	})
 
 	mygo.App.WhenReady(func() {
-		cfgPath := strings.TrimSpace(os.Getenv("FOMIGO_CONFIG_PATH"))
+		cfgPath := formigoEnv("FORMIGO_CONFIG_PATH", "FOMIGO_CONFIG_PATH")
 		if cfgPath == "" {
 			if userData, err := mygo.App.Path(mygo.PathUserData); err == nil && userData != "" {
 				cfgPath = filepath.Join(userData, "preferences.json")
@@ -203,4 +203,11 @@ func main() {
 		}
 		log.Fatal(err)
 	}
+}
+
+func formigoEnv(name, legacyName string) string {
+	if value := strings.TrimSpace(os.Getenv(name)); value != "" {
+		return value
+	}
+	return strings.TrimSpace(os.Getenv(legacyName))
 }
